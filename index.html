@@ -32,7 +32,7 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      background-image: url('你的背景圖網址.jpg');
+      background-image: url('你的背景圖網址.jpg'); /* ← 可換成你自己的背景圖網址 */
       background-size: cover;
       opacity: 0.15;
     }
@@ -45,9 +45,26 @@
   <p>這是一段只屬於妳的聲音，希望妳每天都能感受到我的陪伴。</p>
   <p>👇 點一下播放</p>
 
-  <audio autoplay controls>
-    <source src="LoveSong.mp3" type="audio/mpeg">
+  <audio id="player" controls autoplay>
     您的瀏覽器不支援音訊播放。
   </audio>
+
+  <script>
+    // 📀 將這裡改成你實際上傳的 mp3 檔名
+    const tracks = [
+      "love1.mp3",
+      "love2.mp3",
+      "love3.mp3"
+    ];
+
+    // 🎲 隨機挑選一首
+    const randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
+
+    // 🎵 設定 audio 播放器來源
+    const player = document.getElementById("player");
+    player.src = randomTrack;
+    player.load();
+    player.play();
+  </script>
 </body>
 </html>
